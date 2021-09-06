@@ -17,13 +17,13 @@ class ValidateCreditCard:
 
     @classmethod
     def handle(cls, number: str) -> CardResponse:
-        if cls._verify_luhn_verification(number):
+        if not cls._verify_luhn_algorithm(number):
             return CardResponse(CreditCardMessage.invalid, HTTP_400_BAD_REQUEST)
 
         return CardResponse(CreditCardMessage.valid, HTTP_200_OK)
 
     @classmethod
-    def _verify_luhn_verification(cls, number: str) -> bool:
+    def _verify_luhn_algorithm(cls, number: str) -> bool:
         """
         Verify if input is a valid number according to Luhn algorithm.
 
