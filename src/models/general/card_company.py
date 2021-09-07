@@ -5,3 +5,4 @@ class Company(Enum):
     MASTER: str = "mastercard"
     VISA: str = "visa"
     AMEX: str = "american express"
+    UNKNOWN: str = "unknown"
